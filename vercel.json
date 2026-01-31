@@ -1,0 +1,21 @@
+{
+  "name": "moltbot-secure-api",
+  "version": 2,
+  "env": {
+    "AUTH_SECRET": "@AUTH_SECRET",
+    "ROTATION_SECRET": "@ROTATION_SECRET",
+    "OPENROUTER_API_KEY": "@OPENROUTER_API_KEY",
+    "IP_ALLOWLIST": "@IP_ALLOWLIST",
+    "ALLOWED_ORIGINS": "https://clawd.bot"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {"key": "Strict-Transport-Security", "value": "max-age=31536000"},
+        {"key": "X-Content-Type-Options", "value": "nosniff"},
+        {"key": "X-Frame-Options", "value": "DENY"}
+      ]
+    }
+  ]
+}
