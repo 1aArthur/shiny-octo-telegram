@@ -8,6 +8,19 @@
     "IP_ALLOWLIST": "@IP_ALLOWLIST",
     "ALLOWED_ORIGINS": "https://clawd.bot"
   },
+  "buildCommand": "npm run build",
+  "outputDirectory": ".vercel/output",
+  "functions": {
+    "api/**/*.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1.ts"
+    }
+  ],
   "headers": [
     {
       "source": "/api/(.*)",
